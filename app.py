@@ -5,7 +5,7 @@ app=Flask(__name__)
 def index():
   if request.method=="POST":
     rates = float(request.form.get("rates"))
-    model= joblib.load(r'D:\PROGRAMS\NTU\regression.jl')
+    model= joblib.load("regression.jl")
     r=model.predict([[rates]])
     return(render_template("index.html",result=r))
   else:
